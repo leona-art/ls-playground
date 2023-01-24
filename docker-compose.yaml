@@ -8,10 +8,10 @@ services:
     ports:
       - "3000:3000"
     command: npm run dev
-  db:
-    image: surrealdb/surrealdb:latest
-    ports:
-      - "8000:8000"
-    command: start --user root --pass root file://database
-    volumes:
-      - ./data/database.db:/database.db
+  # db:
+  #   image: surrealdb/surrealdb:latest
+  #   ports:
+  #     - "8000:8000"
+  #   command: start --user root --pass root file://database
+  #   volumes:
+  #     - ./data/database.db:/database.db
