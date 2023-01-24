@@ -2,11 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { Card,Text } from '@nextui-org/react'
+import { Card, Text, Button,Link } from '@nextui-org/react'
+import { useSession,signIn,signOut } from "next-auth/react";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { data: session } = useSession()
   return (
     <>
       <Head>
@@ -26,6 +28,9 @@ export default function Home() {
         >
           This is ls playground
         </Text>
+        {session ?
+          <Button onClick={()=>signOut()}>Sign Out</Button> :
+          <Button onClick={()=>signIn()}>Sign In</Button>}
       </main>
     </>
   )
